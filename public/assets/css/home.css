@@ -1,0 +1,154 @@
+body{
+    background: #FCEDF1;
+    color: #1E1E1E;
+}
+
+.header{
+    margin-top: 100px;
+}
+
+.header .aktivitas-terbaru{
+}
+.header .aktivitas-terbaru h4{
+    text-align: center;
+}
+
+.header .aktivitas-terbaru ul{
+    list-style: none;
+}
+.header .aktivitas-terbaru ul li{
+    padding: 10px 0px;
+}
+.header .aktivitas-terbaru ul li .img-terbaru{
+    padding: 0;
+}
+.header .aktivitas-terbaru ul li img{
+    width: 100%;
+    border-radius: 50px;
+}
+
+.header .aktivitas-terbaru ul li .info-terbaru{
+}
+.header .aktivitas-terbaru ul li .info-terbaru h6{
+}
+.header .aktivitas-terbaru ul li .info-terbaru p{
+    font-size: 10px;
+    margin-bottom: 0px;
+}
+.header .aktivitas-terbaru ul li .info-terbaru a{
+    text-decoration: none;
+    color: #E03268;
+}
+
+.recommended-book{
+    margin-top: 50px;
+}
+.box-book{
+    margin-bottom: 100px;
+}
+.book{
+    -webkit-box-shadow: 0px 24px 40px -35px rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 24px 40px -35px rgba(0,0,0,0.9);
+    box-shadow: 0px 24px 40px -35px rgba(0,0,0,0.9);
+    
+    background: rgba(252,237,241,1);
+    background: -moz-linear-gradient(top, rgba(252,237,241,1) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(252,237,241,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(252,237,241,1) 0%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(252,237,241,1) 0%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(252,237,241,1) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(252,237,241,1) 0%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcedf1', endColorstr='#ffffff', GradientType=0 );
+
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+.book .cover-book{
+    
+}
+.book .cover-book img{
+    border-radius: 10px;
+}
+.book .info-book{
+    text-align: center;
+    margin-top: 10px;
+}
+.book .info-book p{
+    font-size: 11px;
+    margin-bottom: 0px;
+    margin-top: -7px;
+    color: #727272;
+}
+
+.read-book .btn-read{
+    background: #E03268;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 50px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.star-under {
+  color: #ddd;
+}
+
+.star-over {
+  color: #ddd;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.star-visible {
+  display: inline-block;
+  color: #E03268;
+}
+
+.all-book{
+    margin-bottom: 500px;
+}
+.all-book .sort{
+    padding: 30px 50px;
+    padding-bottom: 20px;
+    background: #fff;
+    font-family: AP-L;
+    color: #727272;
+}
+.all-book .sort{
+    padding: 30px 50px;
+    padding-bottom: 20px;
+    background: #fff;
+    font-family: AP-L;
+    margin-bottom: 100px;
+}
+.all-book .sort label{
+    padding: 0px 20px;
+}
+.all-book .sort .genre{
+    margin-left: 50px;
+}
+.all-book .sort select{
+    padding: 5px 20px;
+    padding-right: 50px;
+    border-radius: 5px;
+    border: 1px solid #E03268;
+    color: #727272;
+    font-family: AP-L;
+    font-size: 12px;
+    background: #fff;
+    box-sizing: border-box;
+}
+.all-book .sort select option{
+    font-family: AP-L;
+}

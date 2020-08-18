@@ -1,0 +1,18 @@
+.header-genre-book{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.content-genre-book{
+    padding:50px;
+    background: #fff;
+    width: 100%;
+}
+
+.box-header-genre h1{
+    color: #E03268;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

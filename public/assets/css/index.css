@@ -1,0 +1,112 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family: AP-R;
+}
+
+.login{
+    height: 100%;
+}
+.login .img-login{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/login.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login .img-login img{
+    width: 30vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.login .content-login{
+    height: 100vh;
+    padding: 0;
+}
+
+.login .form-login{
+    height: 100vh;
+}
+.login .form-login .caption-welcome{
+    text-align: center;
+    padding-bottom: 50px;
+}
+.login .form-login .caption-welcome h2{
+    color: #E03268;
+    font-family: AP-M;
+    font-size: 28px;
+}
+.login .form-login .caption-welcome p{
+    color: #BCBCBC;
+    font-size: 14px;
+}
+
+.login form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.login form table{
+}
+.login form table .text-sign-in{
+    font-size: 20px;
+    color: #E03268;
+    font-family: AP-M;
+    padding-bottom: 30px;
+}
+.login .form-login table td{
+    padding-bottom: 20px;
+}
+.login .form-login table td .id-pass{
+    border: none;
+    border-bottom: 1px solid #E03268;
+    background: transparent;
+}
+.login .form-login table td a{
+    color: #E03268;
+    font-size: 14px;
+}
+.login .form-login table td .btn-masuk{
+    background: #E03268;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 30px;
+    color: #fff;
+    float: right;
+}
+.login .form-login table .daftar{
+    padding-top: 100px;
+    text-align: center;
+    color: #BCBCBC;
+}
+.login .form-login table .daftar button{
+    color: #E03268;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+}
+
+.modal-header{
+    border-bottom: none;
+}
+.modal-footer{
+    border-top: none;
+}
+.modal-body{
+    text-align: center;
+}
+
+@media (max-width: 991px){
+    .login .img-login{
+        height: 50vh;
+    }
+
+    .login .content-login{
+        height: 50vh;
+    }
+}

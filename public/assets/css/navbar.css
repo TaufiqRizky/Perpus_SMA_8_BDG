@@ -1,0 +1,153 @@
+.search{
+    color: #aaaaaa;
+    border: 1px solid #bcbcbc;
+    border-radius: 50px;
+    padding: 5px 20px;
+}
+.search i{
+    color: #aaaaaa;
+}
+.input-search{
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+.navbar{
+    z-index: 999;
+    height: 100px;
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -o-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -ms-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+}
+
+.navbar .logo{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.navbar .logo img{
+    max-width: 300px;
+}
+
+
+        .menu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu .list-menu{
+            display: inline;
+            float: left;
+        }
+
+.menu .list-menu .dropbtn{
+    padding: 10px 20px;
+    color: #727272;
+    
+}
+
+.menu .list-menu ul li .dropbtn2{
+    padding: 15px 100px 15px 20px;
+    
+}
+
+        ul li:hover>.dropbtn {
+            color: #E03268 !important;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu li a {
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .menu li ul {
+            position: absolute;
+            top: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: none;
+            line-height: normal;
+            background-color: #fff;
+    -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -o-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -ms-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+        }
+
+        .menu li ul li a {
+            text-align: left;
+            color: #727272;
+            font-size: 14px;
+            padding: 10px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .menu li ul li a:hover {
+            background-color: #E03268;
+            color: #ffffff;
+        }
+
+        .menu li ul li ul {
+            left: 100%;
+            top: 0;
+        }
+
+
+        ul li:hover>ul {
+            display: block;
+        }
+
+
+.navbar .akun img{
+    max-width: 30px;
+    border-radius: 50px;
+}
+.navbar .akun i{
+    padding: 5px;
+    color: #000;
+}
+.navbar .akun .dropbtn{
+    padding-bottom: 42px;
+}
+.navbar .akun:hover .dropbtn{
+    color: #E03268;
+    cursor: pointer;
+}
+.navbar .akun:hover .dropdown-content{
+    display: block;
+    -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -o-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -ms-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+}
+.navbar .akun .dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    margin-top: 35px;
+}
+.navbar .akun .dropdown-content .dropdown-item{
+    color: #022c43;
+    padding: 15px 100px 15px 20px;
+}
+.navbar .akun .dropdown-content .dropdown-item:hover{
+    color: #fff;
+    background: #E03268;
+}
