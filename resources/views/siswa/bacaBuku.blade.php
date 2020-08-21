@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="_token" content="{{ csrf_token() }}"/>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="{{url('assets/css/navbar.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/home.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/genre-book.css')}}">
+    <link rel="stylesheet" href="{{url('css/starrate.css')}}">
       
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -27,15 +29,15 @@
         <style type="text/css">
            @font-face {
                 font-family: "AP-R";
-                src: url('assets/font/Apercu-Pro-Regular.otf');
+                src: url('../../assets/font/Apercu-Pro-Regular.otf');
             }
            @font-face {
                 font-family: "AP-M";
-                src: url('assets/font/Apercu-Pro-Medium.otf');
+                src: url('../../assets/font/Apercu-Pro-Medium.otf');
             }
            @font-face {
                 font-family: "AP-L";
-                src: url('assets/font/Apercu-Pro-Light.otf');
+                src: url('../../assets/font/Apercu-Pro-Light.otf');
             }
         </style>
 
@@ -137,16 +139,16 @@
             </div>
         </div>
       
-    <div class="pdf-viewer">
+   <!--  <div class="pdf-viewer">
         <div>
-  <button id="prev">Previous</button>
-  <button id="next">Next</button>
-  &nbsp; &nbsp;
-  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
+          <button id="prev">Previous</button>
+          <button id="next">Next</button>
+          &nbsp; &nbsp;
+          <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+        </div>
 
-<canvas id="the-canvas"></canvas>
-    </div>
+        <canvas id="the-canvas"></canvas>
+    </div> -->
       
     <div class="header-read-book">
         <div class="container">
@@ -190,10 +192,12 @@
                     </div>
                     <div class="col-12 write-review">
                         <div class="row">
-                            <div class="col-1 profile-account"><img src="assets/img/akun.jpg"></div>
+                            <div class="col-1 profile-account"><img src="../../assets/img/akun.jpg"></div>
                             <div class="col-11 input-write-review">
-                                <textarea placeholder="Tulis komentar Mu"></textarea>
-                                <a href="" class="btn-send">Kirim</a>
+                                <span class="my-rating-9"></span>
+                                <span class="live-rating"></span>
+                                <textarea placeholder="Tulis komentar Mu" id="textComment"></textarea>
+                                <button class="btn-send" onclick="submitComment('{{$buku->id}}')">Kirim</button>
                             </div>
                         </div>
                     </div>
@@ -201,123 +205,9 @@
                         <div class="col-12 content-review">
                             <div class="row">
                                 <div class="col-12 content-review-book">
-                                    <ul class="col-12">
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-1 profile-account"><img src="assets/img/akun.jpg"></div>
-                                                <div class="col-8 content-profile-review">
-                                                    <h6>Ucup Lawless</h6>
-                                                    <p class="time">16 Menit yang lalu</p>
-                                                    <p>Suatu percobaan yang sangat mantap</p>
-                                                </div>
-                                                <div class="col-3 rating-review">
-                                                    <div id="parent1" class="content-rating-review">
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-1 profile-account"><img src="assets/img/akun.jpg"></div>
-                                                <div class="col-8 content-profile-review">
-                                                    <h6>Ucup Lawless</h6>
-                                                    <p class="time">16 Menit yang lalu</p>
-                                                    <p>Suatu percobaan yang sangat mantap</p>
-                                                </div>
-                                                <div class="col-3 rating-review">
-                                                    <div id="parent1" class="content-rating-review">
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-1 profile-account"><img src="assets/img/akun.jpg"></div>
-                                                <div class="col-8 content-profile-review">
-                                                    <h6>Ucup Lawless</h6>
-                                                    <p class="time">16 Menit yang lalu</p>
-                                                    <p>Suatu percobaan yang sangat mantap</p>
-                                                </div>
-                                                <div class="col-3 rating-review">
-                                                    <div id="parent1" class="content-rating-review">
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-1 profile-account"><img src="assets/img/akun.jpg"></div>
-                                                <div class="col-8 content-profile-review">
-                                                    <h6>Ucup Lawless</h6>
-                                                    <p class="time">16 Menit yang lalu</p>
-                                                    <p>Suatu percobaan yang sangat mantap</p>
-                                                </div>
-                                                <div class="col-3 rating-review">
-                                                    <div id="parent1" class="content-rating-review">
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                        <i class="star star-under fa fa-star">
-                                                            <i class="star star-over fa fa-star"></i>
-                                                        </i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                    <ul class="col-12 listComment">
+                                        
+                                       
                                     </ul>
                                 </div>
                             </div>
@@ -383,12 +273,15 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
       
     <script src="{{url('assets/js/option-swiper.js')}}"></script>
+    
       
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="{{url('assets/js/bootstrap.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
+
+    <script src="{{url('js/starrate.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js" integrity="sha512-Vvbhrrw9oPzjTUUbw+bw/P1mMW9NW2H21DhoajJW69XzOBhICUlI5rywBcy7SI8Y5Dc9v+oIe5lXwQX0PauUCA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js" integrity="sha512-2OTk0xqsNt9LEecFvW5JNqT2b5a5tS6Kvbo8giRkoZ5KmhrBrc330Bsz8MPa4LC5Yfu5hKdA37zumLUgU5MonA==" crossorigin="anonymous"></script>
@@ -396,11 +289,97 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.entry.min.js" integrity="sha512-NJEHr6hlBM4MkVxJu+7FBk+pn7r+KD8rh+50DPglV/8T8I9ETqHJH0bO7NRPHaPszzYTxBWQztDfL6iJV6CQTw==" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+        $( document ).ready(function() {
+            getDataComment();
+           
+        });
+        var rate=3;
+        $(".my-rating-9").starRating({
+            initialRating: rate,
+            starShape: 'rounded',
+            starSize: 20,
+            disableAfterRate: false,
+            onHover: function(currentIndex, currentRating, $el){
+              console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+              $('.live-rating').text(currentIndex);
+              rate=currentRating;
+            },
+            onLeave: function(currentIndex, currentRating, $el){
+              console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+              $('.live-rating').text(currentRating);
+              rate=currentRating;
+
+            }
+          });
+
+        function getDataComment() {
+            var id = '{{$buku->id}}';
+            console.log(id);
+            $.ajax({
+                  url:"../comment/"+id,
+                  type:'post',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{id:id},
+                  success: function (data) {
+                    $('.listComment').empty();
+                    for (var i = 0 ; i < data.length; i++) {
+                        $('.listComment').append('<li>'
+                                            +'<div class="row">'
+                                              +'<div class="col-1 profile-account"><img src="../../assets/img/akun.jpg"></div>'
+                                                +'<div class="col-8 content-profile-review">'
+                                                    +'<h6>'+data[i]['nama']+'</h6>'
+                                                    +'<p class="time">'+data[i]['created_at']+'</p>'
+                                                    +'<p>'+data[i]['comment']+'</p>'
+                                                +'</div>'
+                                                +'<div class="col-3 rating-review">'
+                                                   +' <div id="parent1'+data[i]['id']+'" class="content-rating-review">'
+                                                       
+                                                    +'</div>'
+                                                +'</div>'
+                                            +'</div>'
+                                        +'</li>');
+                        for (var j = 1;  j<= Math.round(data[i]['rate']); j++) {
+                            $('#parent1'+data[i]['id']).append('<i class="star star-under fa fa-star ">'
+                                                +'<i class="star star-over fa fa-star text-primary"></i>'
+                                            +'</i>');
+                        }
+                        for (var x = 1;  x<= (5-Math.round(data[i]['rate'])); x++) {
+                            $('#parent1'+data[i]['id']).append('<i class="star star-under fa fa-star ">'
+                                                +'<i class="star star-over fa fa-star "></i>'
+                                            +'</i>');
+                        }
+                        
+                    }
+                     },
+                      error: function (data) {
+                          alert('gagal');
+                      }
+              });
+        }
+
+                
+
+        function submitComment(id) {
+            console.log(rate);
+            console.log($('#textComment').val());
+           $.ajax({
+                  url:"../comment/tambah",
+                  type:'POST',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{id:id,rate:rate,komen:$('#textComment').val()},
+                  success: function (data) {
+                    alert('berhasil Menambahkan Comment');
+                    getDataComment();
+                     },
+                      error: function (data) {
+                          alert('gagal');
+                      }
+              });
+        }
         
-        var url = "{{url('upload/pdf/'.$buku->pdf)}}";
 
-
-
+// pdf
+var url = "{{url('upload/pdf/'.$buku->pdf)}}";
 var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,

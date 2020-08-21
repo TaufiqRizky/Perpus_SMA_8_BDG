@@ -47,5 +47,7 @@ Route::post('buku/uploadP','GuruController@pdfUpload')->name('uploadP');
 Route::prefix('siswa/')->name('siswa.')->group(function(){
 Route::get('dashboard','SiswaController@index')->name('index');
 Route::get('baca/{id}','SiswaController@bacaBuku')->name('Bbuku');
+Route::post('comment/tambah','SiswaController@addComment')->name('Ccomment');
+Route::post('comment/{id}','SiswaController@getComment')->name('Gcomment');
 
 });

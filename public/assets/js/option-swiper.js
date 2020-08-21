@@ -11,7 +11,7 @@
       },
     });
 
-var rating1 = 3;
+var rating1 = 0;
 rateStyle(rating1, 'parent1');
 // javascript
 function rateStyle(num, divID) {
