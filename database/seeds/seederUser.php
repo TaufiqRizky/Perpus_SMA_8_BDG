@@ -24,6 +24,11 @@ class seederUser extends Seeder
             'password' => Hash::make('10118080'),
             'Role' => 'guru',
         ]);
+        DB::table('users')->insert([
+            'email' => 'taufiq.it2@gmail.com',
+            'password' => Hash::make('15161212'),
+            'Role' => 'siswa',
+        ]);
 
         DB::table('guru')->insert([
             'nip' => '10118080',
@@ -32,6 +37,16 @@ class seederUser extends Seeder
             'jk' => 'L',
             'tgl_lahir' => '2020-08-17',
             'user_id' => '2',
+        ]);
+
+        DB::table('siswa')->insert([
+            'nis' => '15161212',
+            'nama' => 'Taufiq Rizky',
+            'alamat' => 'saturn',
+            'jk' => 'L',
+            'kelas' => 'XII-IPA2',
+            'tgl_lahir' => '2000-08-19',
+            'user_id' => '3',
         ]);
     }
 }

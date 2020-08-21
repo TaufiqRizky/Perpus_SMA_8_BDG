@@ -22,6 +22,7 @@ class CreateBukusTable extends Migration
             $table->string('rekomen');
             $table->string('pdf');
             $table->text('sinopsis');
+            $table->integer('rate')->default(0);
             $table->biginteger('user_id')->unsigned();
 
             $table->timestamps();

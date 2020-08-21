@@ -16,3 +16,216 @@
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+
+
+
+.header-detail-book{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.header-detail-book .cover-book-detail img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 200px;
+    border-radius: 10px;
+}
+.header-detail-book .content-book-detail .creator{
+    color: #727272;
+    line-height: 5px;
+}
+.header-detail-book .content-book-detail h6{
+    margin-top: 30px;
+    color: #E03268;
+    font-family: AP-L;
+}
+.header-detail-book .content-book-detail .synopsis{
+    margin-top: 20px;
+    color: #727272;
+    font-family: AP-L;
+}
+.header-detail-book .content-book-detail .btn-book-detail{
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+.header-detail-book .content-book-detail .btn-book-detail a{
+    padding: 20px 80px;
+    background: #E03268;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 0px 10px;
+}
+.header-detail-book .content-book-detail .btn-book-detail a:hover{
+    text-decoration: none;
+}
+
+
+.comment-section .review{
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -o-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -ms-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+}
+.comment-section .review .title-review{
+    border-bottom: 1px solid #727272;
+}
+.comment-section .review .title-review h4{
+    padding: 20px 15px 15px 15px;
+    color: #E03268;
+    font-family: AP-L;
+}
+
+.box-content-review{
+    margin: 0px 0px 15px 0px;
+}
+.box-content-review .content-review-book .rating-review .content-rating-review{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.box-content-review .content-review-book ul{
+    list-style: none;
+}
+.box-content-review .content-review-book ul li{
+    padding: 15px 0px;
+}
+.box-content-review .content-review-book ul li .profile-account{
+    padding: 0;
+}
+.box-content-review .content-review-book ul li img{
+    width: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.box-content-review .content-review-book ul li .content-profile-review p{
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+.box-content-review .content-review-book ul li .content-profile-review .time{
+    color: #727272;
+    font-size: 10px;
+}
+.box-content-review .content-review-book ul li .content-profile-review a{
+    text-decoration: none;
+    color: #E03268;
+}
+
+.comment-section .review .footer-review{
+    text-align: center;
+    padding: 20px 15px;
+}
+.comment-section .review .footer-review a{
+    text-align: center;
+    color: #E03268;
+}
+.comment-section .review .footer-review a:hover{
+    text-decoration: none;
+}
+
+
+.comment-section .review .write-review{
+    padding: 30px 45px;
+    border-bottom: 1px solid #727272;
+}
+.comment-section .review .write-review .profile-account{
+    padding: 0;
+}
+.comment-section .review .write-review img{
+    width: 50px;
+    border-radius: 50px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.comment-section .review .write-review textarea{
+    border: 1px solid #727272;
+    width: 100%;
+    padding: 15px;
+}
+.comment-section .review .write-review .btn-send{
+    padding: 15px 60px;
+    background: #E03268;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 10px;
+    float: right;
+    margin-top: 15px;
+}
+.comment-section .review .write-review .btn-send:hover{
+    text-decoration: none;
+}
+
+
+
+.header-read-book{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.header-read-book .cover-book-read img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 150px;
+    border-radius: 10px;
+}
+.header-read-book .content-book-read .creator{
+    color: #727272;
+    line-height: 5px;
+    font-size: 12px;
+}
+.header-read-book .content-book-read h6{
+    margin-top: 30px;
+    color: #E03268;
+    font-family: AP-L;
+    font-size: 14px;
+}
+.header-read-book .content-book-read .synopsis{
+    margin-top: 20px;
+    color: #727272;
+    font-family: AP-L;
+    font-size: 14px;
+}
+.header-read-book .btn-book-read a{
+    padding: 15px 40px;
+    background: #E03268;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.header-read-book .btn-book-read a:hover{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

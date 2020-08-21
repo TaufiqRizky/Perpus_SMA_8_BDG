@@ -222,6 +222,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.Rsiswa') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Siswa
+                
+              </p>
+            </a>
+          </li>
           @else
             <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">

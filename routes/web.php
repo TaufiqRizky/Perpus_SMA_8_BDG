@@ -27,6 +27,11 @@ Route::get('guru','AdminController@Rguru')->name('Rguru');
 Route::post('guru/tambah','AdminController@Cguru')->name('Cguru');
 Route::delete('guru/hapus/{id}','AdminController@Dguru')->name('Dguru');
 
+Route::get('siswa','AdminController@Rsiswa')->name('Rsiswa');
+
+Route::post('siswa/tambah','AdminController@Csiswa')->name('Csiswa');
+Route::delete('siswa/hapus/{id}','AdminController@Dsiswa')->name('Dsiswa');
+
 });
 
 Route::prefix('guru/')->name('guru.')->group(function(){
@@ -41,5 +46,6 @@ Route::post('buku/uploadP','GuruController@pdfUpload')->name('uploadP');
 
 Route::prefix('siswa/')->name('siswa.')->group(function(){
 Route::get('dashboard','SiswaController@index')->name('index');
+Route::get('baca/{id}','SiswaController@bacaBuku')->name('Bbuku');
 
 });

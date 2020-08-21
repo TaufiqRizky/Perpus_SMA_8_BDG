@@ -55,6 +55,44 @@ class AdminController extends Controller
         }
    }
 
+   public function Rsiswa()
+    {
+        $data['siswa']=DB::table('siswa')->select('*')->get();
+        $data['jml']=DB::table('siswa')->select('*')->count();
+        return view('admin/siswa',$data);
+    }
+
+    public function Csiswa(Request $req)
+    {
+      $user= new \App\User;
+      $user->email = $req->email;
+      $user->password = Hash::make($req->nis);
+      $user->Role = 'siswa';
+      $user->save();
+
+      $siswa= new \App\siswa;
+      $siswa->nis = $req->nis;
+      $siswa->nama=$req->nama;
+      $siswa->kelas=$req->kelas;
+      $siswa->alamat=$req->alamat;
+      $siswa->jk=$req->jk;
+      $siswa->user_id=$user->id;
+      $siswa->tgl_lahir=$req->tgl;
+      $siswa->save();
+
+      return $user;
+    }
+
+    public function Dsiswa($id){
+        $user = DB::table('siswa')->where('user_id', '=', $id)->delete(); 
+        if ($user) {
+            \App\User::destroy($id);
+            return true;
+        }else{
+            return false;
+        }
+   }
+
     /**
      * Show the form for creating a new resource.
      *
