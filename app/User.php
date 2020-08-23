@@ -37,4 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public $timestamps = true;
+    protected $dates = [
+        'created_at',
+        'updated_at'];
 }

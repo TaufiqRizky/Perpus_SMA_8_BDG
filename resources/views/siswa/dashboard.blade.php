@@ -168,46 +168,20 @@
                     <h4>Aktivitas Baru-Baru Ini</h4>
                     <br>
                     <ul class="col-12">
+                        @foreach($comments as $row)
+
                         <li>
                             <div class="row">
                                 <div class="col-3 img-terbaru"><img src="{{url('assets/img/akun.jpg')}}"></div>
                                 <div class="col-9 info-terbaru">
-                                    <h6>Ucup Lawless</h6>
-                                    <p>16 Menit yang lalu</p>
-                                    <p>Baru-baru ini Berkomentar di <a href="">"Judul Buku"</a></p>
+                                    <h6>{{$row->nama}}</h6>
+                                    <p>{{\Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</p>
+                                    <p>Baru-baru ini Berkomentar di <a href="">"{{$row->judul}}"</a></p>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-3 img-terbaru"><img src="{{url('assets/img/akun.jpg')}}"></div>
-                                <div class="col-9 info-terbaru">
-                                    <h6>Ucup Lawless</h6>
-                                    <p>16 Menit yang lalu</p>
-                                    <p>Baru-baru ini Berkomentar di <a href="">"Judul Buku"</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-3 img-terbaru"><img src="{{url('assets/img/akun.jpg')}}"></div>
-                                <div class="col-9 info-terbaru">
-                                    <h6>Ucup Lawless</h6>
-                                    <p>16 Menit yang lalu</p>
-                                    <p>Baru-baru ini Berkomentar di <a href="">"Judul Buku"</a></p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row">
-                                <div class="col-3 img-terbaru"><img src="{{url('assets/img/akun.jpg')}}"></div>
-                                <div class="col-9 info-terbaru">
-                                    <h6>Ucup Lawless</h6>
-                                    <p>16 Menit yang lalu</p>
-                                    <p>Baru-baru ini Berkomentar di <a href="">"Judul Buku"</a></p>
-                                </div>
-                            </div>
-                        </li>
+                        @endforeach
+                        
                     </ul>
                 </div>
             </div>
@@ -263,59 +237,30 @@
                     <div class="row">
                     <div class="sort-by">
                         <label for="sort-by">Sort By</label>
-                        <select id="sort-by" name="sort-by">
-                          <option value="">Newst Book</option>
-                          <option value="">Name A - Z</option>
-                          <option value="">Name Z - A</option>
+                        <select id="sort-by" name="sort-by" onchange="getDataBuku()">
+                          <option selected value="terbaru">Newst Book</option>
+                          <option value="asc">Name A - Z</option>
+                          <option value="desc">Name Z - A</option>
                         </select>
                     </div>
                     <div class="genre">
                         <label for="genre">Genre</label>
-                        <select id="genre" name="genre">
-                          <option value="">Religi</option>
-                          <option value="">Nasionalisme</option>
-                          <option value="">Mandiri</option>
-                          <option value="">Gotong Royong</option>
-                          <option value="">Integritas</option>
+                        <select id="genre" name="genre" onchange="getDataBuku()">
+                          <option selected value="semua">Semua Genre</option>
+                          <option value="religi">Religi</option>
+                          <option value="nasionalisme">Nasionalisme</option>
+                          <option value="mandiri">Mandiri </option>
+                          <option value="gotong royong">Gotong Royong</option>
+                          <option value="integritas">Integritas</option>
+                          
                         </select>
                     </div>
                     </div>
                 </div>
-
-                @foreach($buku as $row)
-                <div class="col-3 box-book">
-                    <div class="row justify-content-md-center">
-                        <div class="col-8 book">
-                            <div class="cover-book">
-                                <center><img width="125" height="184" src="../upload/cover/{{$row->cover}}"></center>
-                            </div>
-                            <div class="info-book">
-                                <h6>{{$row->judul}}</h6>
-                                <p>{{$row->nama}}</p>
-                                <div id="parent1">
-                                    <?php 
-                                        for ($i=1; $i <= $row->rate ; $i++) { 
-                                          echo '<i class="star star-under fa fa-star ">
-                                                <i class="star star-over fa fa-star text-primary"></i>
-                                            </i>';
-                                        }
-                                        for ($i=0; $i < (5-$row->rate) ; $i++) { 
-                                            echo '<i class="star star-under fa fa-star ">
-                                                <i class="star star-over fa fa-star"></i>
-                                            </i>';
-                                        }
-                                    ?>
-                                    
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="read-book">
-                        <center><a href="{{url('siswa/baca/'.$row->id)}}" class="btn-read">Baca</a></center>
-                    </div>
+                <div id="list-buku" class="col-12">
+                    
                 </div>
-                @endforeach
+                
                
             </div>
         </div>
@@ -334,5 +279,82 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="{{url('assets/js/bootstrap.min.js')}}"></script>
+    
+
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            getDataBuku();
+           
+        });
+
+        function getDataBuku() {
+            if ($('#genre').val() == 'semua') {
+                $.ajax({
+                  url:"getBuku/semua",
+                  type:'post',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{sort:$('#sort-by').val(),genre:$('#genre').val()},
+                  success: function (data) {
+                    
+                    setData(data);
+                     },
+                      error: function (data) {
+                          alert('gagal');
+                      }
+              });
+            }else{
+
+            $.ajax({
+                  url:"getBuku/genre",
+                  type:'post',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{sort:$('#sort-by').val(),genre:$('#genre').val()},
+                  success: function (data) {
+                    
+                    setData(data);
+                     },
+                      error: function (data) {
+                          alert('gagal');
+                      }
+              });
+            }
+            
+        }
+
+        function setData(data){
+             $('#list-buku').empty();
+            for (var i = 0 ; i < data.length; i++) {
+                        $('#list-buku').append('<div class="col-3 box-book">'
+                                +'<div class="row justify-content-md-center">'
+                                    +'<div class="col-8 book">'
+                                        +'<div class="cover-book">'
+                                            +'<center><img width="125" height="184" src="../upload/cover/'+data[i]['cover']+'"></center>'
+                                        +'</div>'
+                                        +'<div class="info-book">'
+                                            +'<h6>'+data[i]['judul']+'</h6>'
+                                            +'<p>'+data[i]['nama']+'</p>'
+                                            +'<div id="parent1'+data[i]['id']+'">'
+                                            +'</div>'
+                                        +'</div>'
+                                    +'</div>'
+                                +'</div>'
+                                +'<div class="read-book">'
+                                    +'<center><a href="../siswa/baca/'+data[i]['id']+'" class="btn-read">Baca</a></center>'
+                                +'</div>'
+                            +'</div>');
+                        for (var j = 1;  j<= Math.round(data[i]['rate']); j++) {
+                            $('#parent1'+data[i]['id']).append('<i class="star star-under fa fa-star ">'
+                                                +'<i class="star star-over fa fa-star text-primary"></i>'
+                                            +'</i>');
+                        }
+                        for (var x = 1;  x<= (5-Math.round(data[i]['rate'])); x++) {
+                            $('#parent1'+data[i]['id']).append('<i class="star star-under fa fa-star ">'
+                                                +'<i class="star star-over fa fa-star "></i>'
+                                            +'</i>');
+                        }
+                        
+                    }
+        }
+    </script>
   </body>
 </html>

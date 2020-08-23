@@ -282,6 +282,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
 
     <script src="{{url('js/starrate.js')}}"></script>
+    <script src="{{url('js/timeElapsed.min.js')}}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.min.js" integrity="sha512-Vvbhrrw9oPzjTUUbw+bw/P1mMW9NW2H21DhoajJW69XzOBhICUlI5rywBcy7SI8Y5Dc9v+oIe5lXwQX0PauUCA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js" integrity="sha512-2OTk0xqsNt9LEecFvW5JNqT2b5a5tS6Kvbo8giRkoZ5KmhrBrc330Bsz8MPa4LC5Yfu5hKdA37zumLUgU5MonA==" crossorigin="anonymous"></script>
@@ -298,6 +299,7 @@
             initialRating: rate,
             starShape: 'rounded',
             starSize: 20,
+            useFullStars:true,
             disableAfterRate: false,
             onHover: function(currentIndex, currentRating, $el){
               console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
@@ -313,6 +315,7 @@
           });
 
         function getDataComment() {
+            
             var id = '{{$buku->id}}';
             console.log(id);
             $.ajax({
@@ -328,7 +331,7 @@
                                               +'<div class="col-1 profile-account"><img src="../../assets/img/akun.jpg"></div>'
                                                 +'<div class="col-8 content-profile-review">'
                                                     +'<h6>'+data[i]['nama']+'</h6>'
-                                                    +'<p class="time">'+data[i]['created_at']+'</p>'
+                                                    +'<p class="time" data-time="'+data[i]['created_at']+'">'+data[i]['created_at']+'</p>'
                                                     +'<p>'+data[i]['comment']+'</p>'
                                                 +'</div>'
                                                 +'<div class="col-3 rating-review">'
@@ -338,6 +341,11 @@
                                                 +'</div>'
                                             +'</div>'
                                         +'</li>');
+                        $('.time').timeElapsed({
+                          currentTime:new Date,
+                          postfix:"ago"
+                        });
+
                         for (var j = 1;  j<= Math.round(data[i]['rate']); j++) {
                             $('#parent1'+data[i]['id']).append('<i class="star star-under fa fa-star ">'
                                                 +'<i class="star star-over fa fa-star text-primary"></i>'

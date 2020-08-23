@@ -120,7 +120,11 @@
                         <select id="genre" class="form-control">
                           <option disabled selected>-- Pilih Genre Buku --</option>
                           <option value="religi">Religi</option>
-                          <option value="fiksi">Fiksi</option>
+                          <option value="nasionalisme">Nasionalisme</option>
+                          <option value="mandiri">Mandiri </option>
+                          <option value="gotong royong">Gotong Royong</option>
+                          <option value="integritas">Integritas</option>
+                          
                         </select>
                       </div>
                       </div>

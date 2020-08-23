@@ -9,4 +9,7 @@ class guru extends Model
 	public $timestamps = true;
     public $table = "guru";
     protected $fillable = ['nip','nama','alamat','tgl_lahir','user_id','jk'];
+    protected $dates = [
+        'created_at',
+        'updated_at'];
 }

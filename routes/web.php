@@ -48,6 +48,8 @@ Route::prefix('siswa/')->name('siswa.')->group(function(){
 Route::get('dashboard','SiswaController@index')->name('index');
 Route::get('baca/{id}','SiswaController@bacaBuku')->name('Bbuku');
 Route::post('comment/tambah','SiswaController@addComment')->name('Ccomment');
+Route::post('getBuku/genre','SiswaController@getBuku')->name('getBukuG');
+Route::post('getBuku/semua','SiswaController@getBukuS')->name('getBukuS');
 Route::post('comment/{id}','SiswaController@getComment')->name('Gcomment');
 
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
 use Response;
 
 class SiswaController extends Controller
@@ -17,7 +18,9 @@ class SiswaController extends Controller
     public function index()
     {
         $data['rekomen']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.rate', 'desc')->limit(4)->get();
-        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->get();
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.created_at', 'desc')->get();
+        $data['comments']=DB::table('comments') ->join('siswa', 'comments.user_id', '=', 'siswa.user_id')->join('buku', 'comments.id_buku', '=', 'buku.id')->select('comments.*','siswa.nama','buku.judul')->orderBy('created_at', 'desc')->limit(4)->get();
+
         return view('siswa/dashboard',$data);
     }
 
@@ -35,6 +38,35 @@ class SiswaController extends Controller
       return $data;
 
     }
+
+    public function getBuku(Request $req)
+    {
+        if ($req->sort == 'terbaru') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->orderBy('buku.created_at', 'desc')->get();
+        }else if ($req->sort == 'asc') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->orderBy('buku.judul', 'asc')->get();
+        }else{
+            $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->orderBy('buku.judul', 'desc')->get();
+        }
+      
+      return $data;
+
+    }
+
+    public function getBukuS(Request $req)
+    {
+        if ($req->sort == 'terbaru') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.created_at', 'desc')->get();
+        }else if ($req->sort == 'asc') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.judul', 'asc')->get();
+        }else{
+            $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.judul', 'desc')->get();
+        }
+      
+      return $data;
+
+    }
+
     public function addComment(Request $req)
     {
       $com= new \App\comment;
