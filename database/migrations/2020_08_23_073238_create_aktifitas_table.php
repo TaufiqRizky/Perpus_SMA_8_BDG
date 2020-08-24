@@ -13,8 +13,12 @@ class CreateAktifitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('aktifitas', function (Blueprint $table) {
-            $table->id();
+        Schema::create('aktivitas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('jenis');
+            $table->string('keterangan')->nullable();
+            $table->biginteger('user_id')->unsigned();
+            $table->biginteger('user_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateAktifitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aktifitas');
+        Schema::dropIfExists('aktivitas');
     }
 }
