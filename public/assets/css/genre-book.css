@@ -214,8 +214,112 @@
 }
 
 
+.jurnal{
+    margin-top: 100px;
+}
+.jurnal .box-jurnal{
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -o-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    -ms-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.75);
+}
+.jurnal .box-jurnal .title-jurnal{
+    border-bottom: 1px solid #727272;
+}
+.jurnal .box-jurnal .title-jurnal h4{
+    padding: 20px 15px 15px 15px;
+    color: #E03268;
+    font-family: AP-L;
+}
+
+.box-content-jurnal .content-jurnal-book ul{
+    list-style: none;
+}
+.box-content-jurnal .content-jurnal-book ul li{
+    padding: 15px 0px;
+}
+
+.box-content-jurnal .content-jurnal-book ul li .info-icon-jurnal{
+    padding: 0;
+}
+.box-content-jurnal .content-jurnal-book ul li .info-icon-jurnal i{
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.box-content-jurnal .content-jurnal-book ul li .content-info-jurnal .title-info-jurnal{
+    font-size: 14px;
+    color: #fff;
+    max-width: 200px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.box-content-jurnal .content-jurnal-book ul li .content-info-jurnal h6{
+    line-height: 10px;
+}
+.box-content-jurnal .content-jurnal-book ul li .content-info-jurnal .synopsis-jurnal{
+    color: #727272;
+    font-size: 10px;
+}
+
+.jurnal .time-jurnal p{
+    color: #727272;
+    font-family: AP-L;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.jurnal .box-jurnal .footer-jurnal{
+    text-align: center;
+    padding: 20px 15px;
+}
+.jurnal .box-jurnal .footer-jurnal a{
+    text-align: center;
+    color: #E03268;
+}
+.jurnal .box-jurnal .footer-jurnal a:hover{
+    text-decoration: none;
+}
 
 
+.new-book .content-info-jurnal .title-info-jurnal{
+    background: #32E08F;
+}
+.new-comment .content-info-jurnal .title-info-jurnal{
+    background: #327DE0;
+}
+.your-review .content-info-jurnal .title-info-jurnal{
+    background: #E03268;
+}
+.new-task .content-info-jurnal .title-info-jurnal{
+    background: #ffe2a2;
+}
+
+.new-book .info-icon-jurnal i{
+    background: #32E08F;
+}
+.new-comment .info-icon-jurnal i{
+    background: #327DE0;
+}
+.your-review .info-icon-jurnal i{
+    background: #E03268;
+}
+.new-task .info-icon-jurnal i{
+    background: #ffe2a2;
+}
 
 
 

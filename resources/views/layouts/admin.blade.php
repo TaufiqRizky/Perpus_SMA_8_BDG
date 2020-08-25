@@ -40,7 +40,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Logout</a>
+        <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit(); " class="nav-link">Logout</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
       </li>
       
     </ul>
@@ -120,39 +123,20 @@
             </a>
           </li>
           @else
-            <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <li class="nav-item ">
+            <a href="{{url('guru/dashboard')}}" class="nav-link {{ Request::path() ==  'guru/dashboard' ? 'active' : ''  }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
+                
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
+            
           </li>
 
           <li class="nav-header">Manage Data</li>
           <li class="nav-item">
-            <a href="{{ route('guru.Rbuku') }}" class="nav-link">
+            <a href="{{ route('guru.Rbuku') }}" class="nav-link {{ Request::path() ==  'guru/buku' ? 'active' : ''  }}">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Book

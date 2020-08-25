@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Aktifitas extends Model
+class Rating extends Model
 {
     //
     public $timestamps = true;
-    public $table = "aktivitas";
-    protected $fillable = ['judul','cover','pdf','jenis','genre','sinopsis','rekomen','user_id'];
+    public $table = "ratings";
+    protected $fillable = ['id','rate','user_id','id_buku'];
+
     protected $dates = [
         'created_at',
         'updated_at'];

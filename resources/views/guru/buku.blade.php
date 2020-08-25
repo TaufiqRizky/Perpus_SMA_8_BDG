@@ -248,6 +248,7 @@
                               'Data buku berhasil di tambahkan',
                               'success'
                             );
+                            setTimeout(location.reload.bind(location), 1500);
                       },
                       error: function (data) {
                             swal.fire(

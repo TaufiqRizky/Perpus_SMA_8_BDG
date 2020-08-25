@@ -8,7 +8,7 @@ class comment extends Model
 {
 	public $timestamps = true;
     public $table = "comments";
-    protected $fillable = ['id','rate','comment','user_id','id_buku'];
+    protected $fillable = ['id','comment','user_id','id_buku'];
 
     protected $dates = [
         'created_at',

@@ -1,143 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="_token" content="{{ csrf_token() }}"/>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
-
-    <!-- Swiper Carousel CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-      
-    <link rel="stylesheet" href="{{url('assets/css/option-swiper.css')}}">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{url('assets/css/index.css')}}">
-    <link rel="stylesheet" href="{{url('assets/css/navbar.css')}}">
-    <link rel="stylesheet" href="{{url('assets/css/home.css')}}">
+@extends('layouts.siswa')
+@section('css')
     <link rel="stylesheet" href="{{url('assets/css/genre-book.css')}}">
     <link rel="stylesheet" href="{{url('css/starrate.css')}}">
-      
-    <!-- Icon CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-      
-        <!-- Import Font -->
-        <style type="text/css">
-           @font-face {
-                font-family: "AP-R";
-                src: url('../../assets/font/Apercu-Pro-Regular.otf');
-            }
-           @font-face {
-                font-family: "AP-M";
-                src: url('../../assets/font/Apercu-Pro-Medium.otf');
-            }
-           @font-face {
-                font-family: "AP-L";
-                src: url('../../assets/font/Apercu-Pro-Light.otf');
-            }
-        </style>
+@endsection
+@section('isi')      
 
-    <title>PERPUSTAKAAN</title>
-  </head>
-  <body>
-        
-        <div class="navbar col-md-12" id="navbar">
-            <div class="container">
-                <div class="logo col-md-4"><a href="home.html"><img id="logo" src="{{url('assets/img/logo.png')}}"></a>
-                </div>
-                <div class="search col-md-4">
-                   <a href=""><i class="fas fa-search"></i> </a> <input type="text" placeholder=" Cari Buku" class="input-search">
-                </div>
-                <ul class="menu col-md-3">
-                    <li class="list-menu"><a href="#" class="dropbtn">Materi</a>
-                        <ul>
-                            <li><a href="#" class="dropbtn2">Novel</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Cerpen</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Puisi</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Drama</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Hikayat / Cerita Rakyat</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-menu"><a href="#" class="dropbtn">Aktivitas</a>
-                        <ul>
-                            <li><a href="#" class="dropbtn2">Novel</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Mengulas</a></li>
-                                    <li><a href="" class="dropbtn2">Menyajikan</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Cerpen</a>
-                                <ul>
-                                    <li><a href="" class="dropbtn2">Mengidentifikasi</a></li>
-                                    <li><a href="" class="dropbtn2">Menganalisis</a></li>
-                                    <li><a href="" class="dropbtn2">Mengontruksi</a></li>
-                                    <li><a href="" class="dropbtn2">Laporan Membaca</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Puisi</a>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Drama</a>
-                            </li>
-                            <li><a href="#" class="dropbtn2">Hikayat / Cerita Rakyat</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="list-menu"><a href="#" class="dropbtn">Jurnal</a>
-                    </li>
-                </ul>
-                <div class="akun col-md-1">
-                        <a class="dropbtn"><img src="{{url('assets/img/akun.jpg')}}"> <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a class="dropdown-item" href="">Profil</a>
-                            <a class="dropdown-item" href="">Logout</a>
-                        </div>
-                </div>
-            </div>
-        </div>
       
    <!--  <div class="pdf-viewer">
         <div>
@@ -177,7 +44,7 @@
                     <p class="synopsis">{{$buku->sinopsis}}</p>
                 </div>
                 <div class="col-3 btn-book-read">
-                    <a href="" class="btn-save"><i class="fas fa-bookmark"></i> Simpan</a>
+                    <a href="#" class="btn-save" data-toggle="modal" data-target="#modalRate"><i class="fas fa-bookmark"></i> Rating</a>
                 </div>
             </div>
         </div>
@@ -194,8 +61,7 @@
                         <div class="row">
                             <div class="col-1 profile-account"><img src="../../assets/img/akun.jpg"></div>
                             <div class="col-11 input-write-review">
-                                <span class="my-rating-9"></span>
-                                <span class="live-rating"></span>
+                                
                                 <textarea placeholder="Tulis komentar Mu" id="textComment"></textarea>
                                 <button class="btn-send" onclick="submitComment('{{$buku->id}}')">Kirim</button>
                             </div>
@@ -264,21 +130,57 @@
             </div>
         </div>
     </div>
-      
 
-    <!-- Optional JavaScript -->
-      
-    <!-- Swiper Carousel JavaScript -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-      
-    <script src="{{url('assets/js/option-swiper.js')}}"></script>
+    <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="modalRate" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Rating Buku</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        @if($rating == null)
+        <span class="my-rating-9"></span>
+        <span class="live-rating"></span>
+        @else
+        Anda sudah memberikan rating pada buku ini<br>
+        <?php 
+                                        for ($i=1; $i <= $rating->rate ; $i++) { 
+                                          echo '<i class="star star-under fa fa-star ">
+                                                <i class="star star-over fa fa-star text-primary"></i>
+                                            </i>';
+                                        }
+                                        for ($i=0; $i < (5-$rating->rate) ; $i++) { 
+                                            echo '<i class="star star-under fa fa-star ">
+                                                <i class="star star-over fa fa-star"></i>
+                                            </i>';
+                                        }
+                                    ?>
+                                    {{$rating->rate}}.0
+        @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         @if($rating == null)
+        <button type="button" class="btn btn-primary" onclick="inputRating('{{$buku->id}}')">Save changes</button>
+        @else
+        <button type="button" class="btn btn-primary" onclick="inputRating('{{$buku->id}}')" disabled>Save changes</button>
+        @endif
+
+      </div>
+    </div>
+  </div>
+</div>
+          
+
+    @endsection
+    @section('js')
+  
     
       
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="{{url('assets/js/bootstrap.min.js')}}"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
 
     <script src="{{url('js/starrate.js')}}"></script>
@@ -298,7 +200,7 @@
         $(".my-rating-9").starRating({
             initialRating: rate,
             starShape: 'rounded',
-            starSize: 20,
+            starSize: 30,
             useFullStars:true,
             disableAfterRate: false,
             onHover: function(currentIndex, currentRating, $el){
@@ -374,9 +276,27 @@
                   url:"../comment/tambah",
                   type:'POST',
                   headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
-                  data:{id:id,rate:rate,komen:$('#textComment').val()},
+                  data:{id:id,komen:$('#textComment').val()},
                   success: function (data) {
                     alert('berhasil Menambahkan Comment');
+                    getDataComment();
+                     },
+                      error: function (data) {
+                          alert('gagal');
+                      }
+              });
+        }
+
+        function inputRating(id) {
+            console.log(rate);
+            
+           $.ajax({
+                  url:"../rating/tambah",
+                  type:'POST',
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                  data:{id:id,rate:rate},
+                  success: function (data) {
+                    alert('berhasil Menambahkan Rating');
                     getDataComment();
                      },
                       error: function (data) {
@@ -478,5 +398,4 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 });
     </script>
     
-  </body>
-</html>
+@endsection

@@ -1,0 +1,58 @@
+.comment-section .info-book-aktivitas{
+    padding-bottom: 100px;
+    padding-top: 30px;
+}
+.comment-section .cover-book-read img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 150px;
+    border-radius: 10px;
+}
+.comment-section .content-book-read .creator{
+    color: #727272;
+    line-height: 5px;
+    font-size: 12px;
+}
+.comment-section .content-book-read h6{
+    margin-top: 30px;
+    color: #E03268;
+    font-family: AP-L;
+    font-size: 14px;
+}
+.comment-section .content-book-read .synopsis{
+    margin-top: 20px;
+    color: #727272;
+    font-family: AP-L;
+    font-size: 14px;
+}
+.comment-section .btn-book-read a{
+    padding: 15px 40px;
+    background: #E03268;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.comment-section .btn-book-read a:hover{
+    text-decoration: none;
+}
+
+.write-review table tr td{
+    text-align: right;
+}
+.write-review table tr .input-text textarea{
+    min-height: 250px;
+}
+
+.padding-ulasan-buku{
+    margin-bottom: 50px;
+    
+}
+.sudah-dibaca{
+    margin-top: 50px;
+}

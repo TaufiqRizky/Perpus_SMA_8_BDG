@@ -24,11 +24,29 @@ class SiswaController extends Controller
         return view('siswa/dashboard',$data);
     }
 
+    public function ulasNovel()
+    {
+        
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ratings', 'buku.id', '=', 'ratings.id_buku')->select('buku.*','guru.nama')->where('buku.jenis','=','novel')->where('ratings.user_id' ,'=',Auth::user()->id)->orderBy('buku.created_at', 'desc')->get();
+        
+
+        return view('siswa/aktivitasNovel',$data);
+    }
+
+    public function getNovel($id)
+    {
+        $data['ulas']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ulasan', 'buku.id', '=', 'ulasan.id_buku')->select('buku.*','guru.nama','ulasan.subject','ulasan.ulasan')->where('ulasan.id_buku','=',$id)->where('ulasan.user_id','=',Auth::user()->id)->first();
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.id','=',$id)->first();
+        return $data;
+    }
+
     public function bacaBuku($id)
     {
         $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('id','=',$id)->first();
+        $data['rating']=DB::table('ratings') ->select('*')->where('id_buku','=',$id)->where('user_id','=',Auth::user()->id)->first();
         $data['rekomen']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.rate', 'desc')->limit(4)->get();
         return view('siswa/bacaBuku',$data);
+        //return dd($data);
     }
 
    
@@ -70,13 +88,40 @@ class SiswaController extends Controller
     public function addComment(Request $req)
     {
       $com= new \App\comment;
-      $com->rate = $req->rate;
+      
       $com->comment = $req->komen;
       $com->user_id = Auth::user()->id;
       $com->id_buku = $req->id;
       $com->save();
 
-      $rate=DB::table('comments')
+      
+
+    }
+
+    public function tambahUlasan(Request $req)
+    {
+      $com= new \App\ulasan;
+      
+      $com->ulasan = $req->ulasan;
+      $com->subject = $req->subject;
+      $com->user_id = Auth::user()->id;
+      $com->id_buku = $req->id;
+      $com->save();
+
+      
+
+    }
+
+    public function addRating(Request $req)
+    {
+     $com= new \App\Rating;
+      
+      $com->rate = $req->rate;
+      $com->user_id = Auth::user()->id;
+      $com->id_buku = $req->id;
+      $com->save();
+
+     $rate=DB::table('ratings')
                 ->where('id_buku', $req->id)
                 ->avg('rate');
 
@@ -84,6 +129,7 @@ class SiswaController extends Controller
               ->where('id', $req->id)
               ->update(['rate' => round($rate)]);
 
+        
     }
 
     /**
