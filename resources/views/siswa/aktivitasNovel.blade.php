@@ -86,10 +86,14 @@
                                             </i>
                                         </div>
                             <h6>Sinopsis</h6>
-                            <p class="synopsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
+                            <p class="synopsis isisinop">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
+                            <h6 class="subject">Subject</h6>
+                            <p class="synopsis isisub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
+                            <h6 class="ulasannnn">Ulasan</h6>
+                            <p class="synopsis isiulasannn" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
                         </div>
                     </div>
-                    <div class="col-12 write-review">
+                    <div class="col-12 write-review" >
                         <table class="col-12">
                             <tr class="row">
                                 <td class="col-3">Subjek</td>
@@ -105,6 +109,7 @@
                             </tr>
                         </table>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -130,8 +135,8 @@
                     $('#jdl').append(data['buku']['judul']);
                     $('.creator').empty();
                     $('.creator').append('oleh '+data['buku']['nama']);
-                    $('.synopsis').empty();
-                    $('.synopsis').append(data['buku']['sinopsis']);
+                    $('.isisinop').empty();
+                    $('.isisinop').append(data['buku']['sinopsis']);
                     $('#bintang').empty();
                     for (var j = 1;  j<= Math.round(data['buku']['rate']); j++) {
                             $('#bintang').append('<i class="star star-under fa fa-star ">'
@@ -149,12 +154,26 @@
 
                     if (data['ulas'] != null) {
                       console.log('isi');
-                      $('#txtUlasan').val(data['ulas']['ulasan']);
-                      $('#txtSubject').val(data['ulas']['subject']);
-                      $('#txtSubject').attr('readonly',true);
-                      $('#txtUlasan').attr('readonly',true);
+                      $('.isisub').empty();
+                      $('.isiulasannn').empty();
+                      $('.isiulasannn').append(data['ulas']['ulasan']);
+                      $('.isisub').append(data['ulas']['subject']);
+                   
                       $('.btn-send').hide();
+                      $('.write-review').hide();
+                      $('.subject').show();
+                      $('.isisub').show();
+                      $('.ulasannnn').show();
+                      $('.isiulasannn').show();
+
                     }else{
+                      $('.subject').hide();
+                      $('.isisub').hide();
+                      $('.ulasannnn').hide();
+                      $('.isiulasannn').hide();
+                      $('.write-review').show();
+                      $('.btn-send').show();
+
                       console.log('kosong');
                     }
                     $('.ulasann').show();
