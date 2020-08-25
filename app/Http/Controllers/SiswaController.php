@@ -24,6 +24,17 @@ class SiswaController extends Controller
         return view('siswa/dashboard',$data);
     }
 
+    public function getBukuDetail($jenis,$genre)
+    {
+        $data['rekomen']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.jenis','=',$jenis)->where('buku.genre','=',$genre)->orderBy('buku.rate', 'desc')->limit(4)->get();
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.jenis','=',$jenis)->where('buku.genre','=',$genre)->orderBy('buku.created_at', 'desc')->get();
+        $data['jenis']=$jenis;
+        $data['genre']=$genre;
+
+
+        return view('siswa/genreBuku',$data);
+    }
+
     public function ulasNovel()
     {
         
@@ -84,6 +95,22 @@ class SiswaController extends Controller
       return $data;
 
     }
+
+    public function getBuku2(Request $req)
+    {
+        if ($req->sort == 'terbaru') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->where('buku.jenis','=',$req->jenis)->orderBy('buku.created_at', 'desc')->get();
+        }else if ($req->sort == 'asc') {
+           $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->where('buku.jenis','=',$req->jenis)->orderBy('buku.judul', 'asc')->get();
+        }else{
+            $data=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.genre','=',$req->genre)->where('buku.jenis','=',$req->jenis)->orderBy('buku.judul', 'desc')->get();
+        }
+      
+      return $data;
+
+    }
+
+    
 
     public function addComment(Request $req)
     {

@@ -47,7 +47,7 @@
         
         <div class="navbar col-md-12" id="navbar">
             <div class="container">
-                <div class="logo col-md-4"><a href="home.html"><img id="logo" src="{{url('assets/img/logo.png')}}"></a>
+                <div class="logo col-md-4"><a href="{{url('siswa/dashboard')}}"><img id="logo" src="{{url('assets/img/logo.png')}}"></a>
                 </div>
                 <div class="search col-md-4">
                    <a href=""><i class="fas fa-search"></i> </a> <input type="text" placeholder=" Cari Buku" class="input-search">
@@ -57,47 +57,47 @@
                         <ul>
                             <li><a href="#" class="dropbtn2">Novel</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
+                                    <li><a href="{{url('siswa/genre/novel/religi')}}" class="dropbtn2">Religi</a></li>
+                                    <li><a href="{{url('siswa/genre/novel/nasionalisme')}}" class="dropbtn2">Nasionalisme</a></li>
+                                    <li><a href="{{url('siswa/genre/novel/mandiri')}}" class="dropbtn2">Mandiri</a></li>
+                                    <li><a href="{{url('siswa/genre/novel/gotong')}}" class="dropbtn2">Gotong Royong</a></li>
+                                    <li><a href="{{url('siswa/genre/novel/integritas')}}" class="dropbtn2">Integritas</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Cerpen</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
+                                    <li><a href="{{url('siswa/genre/cerpen/religi')}}" class="dropbtn2">Religi</a></li>
+                                    <li><a href="{{url('siswa/genre/cerpen/nasionalisme')}}" class="dropbtn2">Nasionalisme</a></li>
+                                    <li><a href="{{url('siswa/genre/cerpen/mandiri')}}" class="dropbtn2">Mandiri</a></li>
+                                    <li><a href="{{url('siswa/genre/cerpen/gotong')}}" class="dropbtn2">Gotong Royong</a></li>
+                                    <li><a href="{{url('siswa/genre/cerpen/integritas')}}" class="dropbtn2">Integritas</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Puisi</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
+                                    <li><a href="{{url('siswa/genre/puisi/religi')}}" class="dropbtn2">Religi</a></li>
+                                    <li><a href="{{url('siswa/genre/puisi/nasionalisme')}}" class="dropbtn2">Nasionalisme</a></li>
+                                    <li><a href="{{url('siswa/genre/puisi/mandiri')}}" class="dropbtn2">Mandiri</a></li>
+                                    <li><a href="{{url('siswa/genre/puisi/gotong')}}" class="dropbtn2">Gotong Royong</a></li>
+                                    <li><a href="{{url('siswa/genre/puisi/integritas')}}" class="dropbtn2">Integritas</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Drama</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
+                                    <li><a href="{{url('siswa/genre/drama/religi')}}" class="dropbtn2">Religi</a></li>
+                                    <li><a href="{{url('siswa/genre/drama/nasionalisme')}}" class="dropbtn2">Nasionalisme</a></li>
+                                    <li><a href="{{url('siswa/genre/drama/mandiri')}}" class="dropbtn2">Mandiri</a></li>
+                                    <li><a href="{{url('siswa/genre/drama/gotong')}}" class="dropbtn2">Gotong Royong</a></li>
+                                    <li><a href="{{url('siswa/genre/drama/integritas')}}" class="dropbtn2">Integritas</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Hikayat / Cerita Rakyat</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Religi</a></li>
-                                    <li><a href="" class="dropbtn2">Nasionalisme</a></li>
-                                    <li><a href="" class="dropbtn2">Mandiri</a></li>
-                                    <li><a href="" class="dropbtn2">Gotong Royong</a></li>
-                                    <li><a href="" class="dropbtn2">Integritas</a></li>
+                                    <li><a href="{{url('siswa/genre/hikayat/religi')}}" class="dropbtn2">Religi</a></li>
+                                    <li><a href="{{url('siswa/genre/hikayat/nasionalisme')}}" class="dropbtn2">Nasionalisme</a></li>
+                                    <li><a href="{{url('siswa/genre/hikayat/mandiri')}}" class="dropbtn2">Mandiri</a></li>
+                                    <li><a href="{{url('siswa/genre/hikayat/gotong')}}" class="dropbtn2">Gotong Royong</a></li>
+                                    <li><a href="{{url('siswa/genre/hikayat/integritas')}}" class="dropbtn2">Integritas</a></li>
                                 </ul>
                             </li>
                         </ul>

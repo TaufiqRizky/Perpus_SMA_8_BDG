@@ -113,6 +113,9 @@
                           <option disabled selected>-- Pilih Jenis Buku --</option>
                           <option value="novel">Novel</option>
                           <option value="cerpen">Cerpen</option>
+                          <option value="puisi">Puisi</option>
+                          <option value="drama">Drama</option>
+                          <option value="hikayat">Hikayat</option>
                         </select>
                       </div>
                       <div class="form-group col-md-6">
@@ -122,7 +125,7 @@
                           <option value="religi">Religi</option>
                           <option value="nasionalisme">Nasionalisme</option>
                           <option value="mandiri">Mandiri </option>
-                          <option value="gotong royong">Gotong Royong</option>
+                          <option value="gotong">Gotong Royong</option>
                           <option value="integritas">Integritas</option>
                           
                         </select>
