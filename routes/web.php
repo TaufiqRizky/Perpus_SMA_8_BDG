@@ -46,10 +46,11 @@ Route::post('buku/uploadP','GuruController@pdfUpload')->name('uploadP');
 
 Route::prefix('siswa/')->name('siswa.')->group(function(){
 Route::get('dashboard','SiswaController@index')->name('index');
+Route::get('jurnal','SiswaController@jurnal')->name('jurnal');
 
 Route::get('baca/{id}','SiswaController@bacaBuku')->name('Bbuku');
-Route::get('novel/aktivitas/ulas','SiswaController@ulasNovel')->name('UNovel');
-Route::get('novel/getNovel/{id}','SiswaController@getNovel')->name('getNovel');
+Route::get('novel/aktivitas/{aktivitas}','SiswaController@ulasNovel')->name('UNovel');
+Route::get('novel/getNovel/{id}/{aktivitas}','SiswaController@getNovel')->name('getNovel');
 Route::post('novel/ulasan/tambah','SiswaController@tambahUlasan');
 
 Route::get('genre/{jenis}/{genre}','SiswaController@getBukuDetail');

@@ -106,16 +106,16 @@
                         <ul>
                             <li><a href="#" class="dropbtn2">Novel</a>
                                 <ul>
-                                    <li><a href="{{url('siswa/novel/aktivitas/ulas')}}" class="dropbtn2">Mengulas</a></li>
-                                    <li><a href="" class="dropbtn2">Menyajikan</a></li>
+                                    <li><a href="{{url('siswa/novel/aktivitas/mengulas')}}" class="dropbtn2">Mengulas</a></li>
+                                    <li><a href="{{url('siswa/novel/aktivitas/menyajikan')}}" class="dropbtn2">Menyajikan</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Cerpen</a>
                                 <ul>
-                                    <li><a href="" class="dropbtn2">Mengidentifikasi</a></li>
-                                    <li><a href="" class="dropbtn2">Menganalisis</a></li>
-                                    <li><a href="" class="dropbtn2">Mengontruksi</a></li>
-                                    <li><a href="" class="dropbtn2">Laporan Membaca</a></li>
+                                    <li><a href="{{url('siswa/novel/aktivitas/identifikasi')}}" class="dropbtn2">Mengidentifikasi</a></li>
+                                    <li><a href="{{url('siswa/novel/aktivitas/analisis')}}" class="dropbtn2">Menganalisis</a></li>
+                                    <li><a href="#" class="dropbtn2">Mengontruksi</a></li>
+                                    <li><a href="#" class="dropbtn2">Laporan Membaca</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" class="dropbtn2">Puisi</a>
@@ -126,7 +126,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="list-menu"><a href="#" class="dropbtn">Jurnal</a>
+                    <li class="list-menu"><a href="{{url('siswa/jurnal')}}" class="dropbtn">Jurnal</a>
                     </li>
                 </ul>
                 <div class="akun col-md-1">

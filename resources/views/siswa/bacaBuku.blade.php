@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-12 review">
                     <div class="col-12 title-review">
-                        <h4>Ulasan</h4>
+                        <h4>Komentar</h4>
                     </div>
                     <div class="col-12 write-review">
                         <div class="row">

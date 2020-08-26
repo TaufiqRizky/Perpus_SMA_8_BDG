@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12 review">
                     <div class="col-12 title-review padding-ulasan-buku">
-                        <h4>Ulas buku yang telah kamu baca</h4>
+                        <h4>{{ucfirst($aktivitas)}} buku yang telah kamu baca</h4>
                     </div>
             <div class="row justify-content-md-center">
               @foreach($buku as $row)
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="read-book">
-                        <center><a href="#" class="btn-read" onclick="getUlas('{{$row->id}}')">Ulas</a></center>
+                        <center><a href="#" class="btn-read" onclick="getUlas('{{$row->id}}')">Pilih</a></center>
                     </div>
                 </div>
                 @endforeach
@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-12 review">
                     <div class="col-12 title-review">
-                        <h4>Ulasan</h4>
+                        <h4>{{ucfirst($aktivitas)}}</h4>
                     </div>
                     <div class="row info-book-aktivitas">
                         <div class="col-3 cover-book-read">
@@ -121,11 +121,16 @@
     <script type="text/javascript">
        $('.ulasann').hide();
        var idBuku;
+       var aktivitas;
+       $( document ).ready(function() {
+            aktivitas= '{{$aktivitas}}';
+           
+        });
 
        function getUlas(id) {
         idBuku=id;
          $.ajax({
-                  url:"../getNovel/"+id,
+                  url:"../getNovel/"+id+"/"+aktivitas,
                   type:'get',
                   headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
                   data:{},
@@ -188,7 +193,7 @@
                   url:"../ulasan/tambah",
                   type:'POST',
                   headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
-                  data:{id:idBuku,ulasan:$('#txtUlasan').val(),subject:$('#txtSubject').val()},
+                  data:{id:idBuku,ulasan:$('#txtUlasan').val(),subject:$('#txtSubject').val(),jenis:aktivitas},
                   success: function (data) {
                     alert('berhasil Menambahkan ulasan');
                     setTimeout(location.reload.bind(location), 1500);

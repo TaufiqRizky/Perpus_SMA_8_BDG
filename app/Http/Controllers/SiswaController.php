@@ -24,6 +24,17 @@ class SiswaController extends Controller
         return view('siswa/dashboard',$data);
     }
 
+    public function jurnal()
+    {
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->orderBy('buku.created_at', 'desc')->limit(4)->get();
+        $data['comments']=DB::table('comments') ->join('siswa', 'comments.user_id', '=', 'siswa.user_id')->join('buku', 'comments.id_buku', '=', 'buku.id')->select('comments.*','siswa.nama','buku.judul')->where('comments.user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->limit(4)->get();
+        $data['novel']=DB::table('histories') ->join('buku', 'histories.id_buku', '=', 'buku.id')->select('histories.*','buku.judul','buku.sinopsis')->where('buku.jenis', '=', 'novel')->orderBy('created_at', 'desc')->limit(4)->get();
+        $data['cerpen']=DB::table('histories') ->join('buku', 'histories.id_buku', '=', 'buku.id')->select('histories.*','buku.judul','buku.sinopsis')->where('buku.jenis', '=', 'cerpen')->orderBy('created_at', 'desc')->limit(4)->get();
+
+
+        return view('siswa/jurnal',$data);
+    }
+
     public function getBukuDetail($jenis,$genre)
     {
         $data['rekomen']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.jenis','=',$jenis)->where('buku.genre','=',$genre)->orderBy('buku.rate', 'desc')->limit(4)->get();
@@ -35,18 +46,23 @@ class SiswaController extends Controller
         return view('siswa/genreBuku',$data);
     }
 
-    public function ulasNovel()
+    public function ulasNovel($aktivitas)
     {
-        
-        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ratings', 'buku.id', '=', 'ratings.id_buku')->select('buku.*','guru.nama')->where('buku.jenis','=','novel')->where('ratings.user_id' ,'=',Auth::user()->id)->orderBy('buku.created_at', 'desc')->get();
+        $data['aktivitas']= $aktivitas;
+        if ($aktivitas == 'mengulas' || $aktivitas=='menyajikan') {
+            $buku='novel';
+        }else{
+            $buku="cerpen";
+        }
+        $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ratings', 'buku.id', '=', 'ratings.id_buku')->select('buku.*','guru.nama')->where('buku.jenis','=',$buku)->where('ratings.user_id' ,'=',Auth::user()->id)->orderBy('buku.created_at', 'desc')->get();
         
 
         return view('siswa/aktivitasNovel',$data);
     }
 
-    public function getNovel($id)
+    public function getNovel($id,$aktivitas)
     {
-        $data['ulas']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ulasan', 'buku.id', '=', 'ulasan.id_buku')->select('buku.*','guru.nama','ulasan.subject','ulasan.ulasan')->where('ulasan.id_buku','=',$id)->where('ulasan.user_id','=',Auth::user()->id)->first();
+        $data['ulas']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ulasan', 'buku.id', '=', 'ulasan.id_buku')->select('buku.*','guru.nama','ulasan.subject','ulasan.ulasan')->where('ulasan.id_buku','=',$id)->where('ulasan.user_id','=',Auth::user()->id)->where('ulasan.jenis','=',$aktivitas)->first();
         $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.id','=',$id)->first();
         return $data;
     }
@@ -63,7 +79,7 @@ class SiswaController extends Controller
    
     public function getComment($id,Request $req)
     {
-      $data=DB::table('comments') ->join('siswa', 'comments.user_id', '=', 'siswa.user_id')->select('comments.*','siswa.nama')->orderBy('created_at', 'desc')->get();
+      $data=DB::table('comments') ->join('siswa', 'comments.user_id', '=', 'siswa.user_id')->select('comments.*','siswa.nama')->where('comments.id_buku','=',$id)->orderBy('created_at', 'desc')->get();
       return $data;
 
     }
@@ -130,11 +146,17 @@ class SiswaController extends Controller
       $com= new \App\ulasan;
       
       $com->ulasan = $req->ulasan;
+      $com->jenis = $req->jenis;
       $com->subject = $req->subject;
       $com->user_id = Auth::user()->id;
       $com->id_buku = $req->id;
       $com->save();
 
+      $ak= new \App\History;
+      $ak->aktivitas = $req->jenis;
+      $ak->user_id = Auth::user()->id;
+      $ak->id_buku = $req->id;
+      $ak->save();
       
 
     }
