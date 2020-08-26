@@ -91,6 +91,8 @@
                             <p class="synopsis isisub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
                             <h6 class="ulasannnn">Ulasan</h6>
                             <p class="synopsis isiulasannn" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
+                            <h6 class="txtreview">Hasil Review</h6>
+                            <p class="synopsis isireview" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dapibus ultrices in iaculis nunc sed augue lacus. Quam nulla porttitor massa id neque aliquam.</p>
                         </div>
                     </div>
                     <div class="col-12 write-review" >
@@ -161,8 +163,16 @@
                       console.log('isi');
                       $('.isisub').empty();
                       $('.isiulasannn').empty();
+                      $('.isireview').empty();
                       $('.isiulasannn').append(data['ulas']['ulasan']);
                       $('.isisub').append(data['ulas']['subject']);
+
+                      if (data['ulas']['review'] == null) {
+                        $('.isireview').append("-- Belum Di Review ! --");
+
+                      }else{
+                        $('.isireview').append(data['ulas']['review']);
+                      }
                    
                       $('.btn-send').hide();
                       $('.write-review').hide();
@@ -170,12 +180,16 @@
                       $('.isisub').show();
                       $('.ulasannnn').show();
                       $('.isiulasannn').show();
+                      $('.txtreview').show();
+                      $('.isireview').show();
 
                     }else{
                       $('.subject').hide();
                       $('.isisub').hide();
                       $('.ulasannnn').hide();
                       $('.isiulasannn').hide();
+                      $('.txtreview').hide();
+                      $('.isireview').hide();
                       $('.write-review').show();
                       $('.btn-send').show();
 

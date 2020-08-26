@@ -62,7 +62,7 @@ class SiswaController extends Controller
 
     public function getNovel($id,$aktivitas)
     {
-        $data['ulas']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ulasan', 'buku.id', '=', 'ulasan.id_buku')->select('buku.*','guru.nama','ulasan.subject','ulasan.ulasan')->where('ulasan.id_buku','=',$id)->where('ulasan.user_id','=',Auth::user()->id)->where('ulasan.jenis','=',$aktivitas)->first();
+        $data['ulas']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->join('ulasan', 'buku.id', '=', 'ulasan.id_buku')->select('buku.*','guru.nama','ulasan.subject','ulasan.ulasan','ulasan.review')->where('ulasan.id_buku','=',$id)->where('ulasan.user_id','=',Auth::user()->id)->where('ulasan.jenis','=',$aktivitas)->first();
         $data['buku']=DB::table('buku') ->join('guru', 'buku.user_id', '=', 'guru.user_id')->select('buku.*','guru.nama')->where('buku.id','=',$id)->first();
         return $data;
     }

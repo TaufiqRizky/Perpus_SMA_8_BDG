@@ -6,7 +6,7 @@
 @section('isi')      
 
       
-   <!--  <div class="pdf-viewer">
+    <div class="pdf-viewer">
         <div>
           <button id="prev">Previous</button>
           <button id="next">Next</button>
@@ -15,7 +15,7 @@
         </div>
 
         <canvas id="the-canvas"></canvas>
-    </div> -->
+    </div>
       
     <div class="header-read-book">
         <div class="container">
@@ -279,6 +279,7 @@
                   data:{id:id,komen:$('#textComment').val()},
                   success: function (data) {
                     alert('berhasil Menambahkan Comment');
+                    setTimeout(location.reload.bind(location), 1500);
                     getDataComment();
                      },
                       error: function (data) {
@@ -297,6 +298,7 @@
                   data:{id:id,rate:rate},
                   success: function (data) {
                     alert('berhasil Menambahkan Rating');
+                     setTimeout(location.reload.bind(location), 1500);
                     getDataComment();
                      },
                       error: function (data) {

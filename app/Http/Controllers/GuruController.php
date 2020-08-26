@@ -53,6 +53,25 @@ class GuruController extends Controller
             return false;
         }
    }
+
+   public function addReview(Request $req)
+   {
+     $data=DB::table('ulasan')
+              ->where('id', $req->id)
+              ->update(['review' => $req->review]);
+   }
+
+   public function Aktivitas($jenis,$aktivitas)
+   {
+     # code...
+     $data['buku']=DB::table('ulasan')->join('buku', 'buku.id', '=', 'ulasan.id_buku')->join('siswa', 'ulasan.user_id', '=', 'siswa.user_id')->select('ulasan.*','buku.judul','siswa.nama')->where('ulasan.jenis','=',$aktivitas)->get();
+     $data['jenis']=$jenis;
+     $data['aktifitas']=$aktivitas;
+         
+        // $data['jml']=DB::table('guru')->select('*')->count();
+        return view('guru/aktivitas',$data);
+
+   }
     public function coverUpload(Request $request)
     {
         

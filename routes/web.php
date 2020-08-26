@@ -42,6 +42,11 @@ Route::delete('buku/hapus/{id}','GuruController@Dbuku')->name('Dbuku');
 Route::post('buku/uploadC','GuruController@coverUpload')->name('uploadC');
 Route::post('buku/uploadP','GuruController@pdfUpload')->name('uploadP');
 
+Route::get('aktivitas/{jenis}/{aktivitas}','GuruController@Aktivitas');
+Route::post('aktivitas/addReview','GuruController@addReview');
+
+
+
 });
 
 Route::prefix('siswa/')->name('siswa.')->group(function(){

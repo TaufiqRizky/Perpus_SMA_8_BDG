@@ -144,6 +144,56 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">Review Aktivitas Siswa</li>
+          <li class="nav-item has-treeview {{ Request::path() ==  'guru/aktivitas/novel/mengulas' ? 'menu-open' : ''  }}{{ Request::path() ==  'guru/aktivitas/novel/menyajikan' ? 'menu-open' : ''  }}">
+            <a href="#" class="nav-link {{ Request::path() ==  'guru/aktivitas/novel/mengulas' ? 'active' : ''  }}{{ Request::path() ==  'guru/aktivitas/novel/menyajikan' ? 'active' : ''  }}">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Novel
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('guru/aktivitas/novel/mengulas')}}" class="nav-link {{ Request::path() ==  'guru/aktivitas/novel/mengulas' ? 'active' : ''  }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mengulas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('guru/aktivitas/novel/menyajikan')}}" class="nav-link {{ Request::path() ==  'guru/aktivitas/novel/menyajikan' ? 'active' : ''  }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Menyajikan</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+            <li class="nav-item has-treeview {{ Request::path() ==  'guru/aktivitas/cerpen/identifikasi' ? 'menu-open' : ''  }}{{ Request::path() ==  'guru/aktivitas/cerpen/analisis' ? 'menu-open' : ''  }}">
+            <a href="#" class="nav-link {{ Request::path() ==  'guru/aktivitas/cerpen/identifikasi' ? 'active' : ''  }}{{ Request::path() ==  'guru/aktivitas/cerpen/analisis' ? 'active' : ''  }}">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Cerpen
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('guru/aktivitas/cerpen/identifikasi')}}" class="nav-link {{ Request::path() ==  'guru/aktivitas/cerpen/identifikasi' ? 'active' : ''  }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Identifikasi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('guru/aktivitas/cerpen/analisis')}}" class="nav-link {{ Request::path() ==  'guru/aktivitas/cerpen/analisis' ? 'active' : ''  }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Analisis</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
           @endif
           
         </ul>
