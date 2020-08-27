@@ -6,15 +6,24 @@
 @section('isi')      
 
       
-    <div class="pdf-viewer">
-        <div>
-          <button id="prev">Previous</button>
-          <button id="next">Next</button>
-          &nbsp; &nbsp;
-          <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-        </div>
+    <div class="container pdf-viewer">
+        <div class="row justify-content-md-center">
+            <div class="col-1">
+              <button id="prev"><i class="fas fa-chevron-left"></i></button>
+            </div>
 
-        <canvas id="the-canvas"></canvas>
+            <div class="col-10">
+                <center><canvas id="the-canvas"></canvas></center>
+            </div>
+            
+            <div class="col-1">
+              <button id="next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="col-12">
+                <center><span>Halaman: <span id="page_num"></span> / <span id="page_count"></span></span></center>
+            </div>
+        </div>
     </div>
       
     <div class="header-read-book">
@@ -314,7 +323,7 @@ var pdfDoc = null,
     pageNum = 1,
     pageRendering = false,
     pageNumPending = null,
-    scale = 0.8,
+    scale = 1.1,
     canvas = document.getElementById('the-canvas'),
     ctx = canvas.getContext('2d');
 

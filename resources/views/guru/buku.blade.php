@@ -50,7 +50,7 @@
                       <td>{{$val->sinopsis}}</td>
                       <td class="js-sweetalert">
                                             
-                                     <a class="btn btn-primary " data-type="" href="{{ url('guru/buku/edit/'.$val->id) }}" > <i class="fas fa-pencil-alt"></i> Edit</a>
+                                     <a class="btn btn-primary text-white" onclick="Edit('{{$val->judul}}','{{$val->jenis}}','{{$val->genre}}','{{$val->sinopsis}}','{{$val->cover}}','{{$val->pdf}}','{{$val->id}}')" > <i class="fas fa-pencil-alt"></i> Edit</a>
                                         
                                      <button class="btn btn-danger " data-id="{{$val->id}}" data-type="D_buku"><i class="far fa-trash-alt"></i> Hapus</button>
                       </td>
@@ -137,6 +137,93 @@
                   <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary btnSimpan">Save changes</button>
+                  </div>
+                </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
+
+            <div class="modal fade" id="modalEdit">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Edit Buku</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   
+                      <div class="form-group ">
+                        <label for="ejudul">Judul</label>
+                        <input type="text" class="form-control" id="ejudul" placeholder="Masukan Judul Buku">
+                      </div>
+                    <form method="post" id="upload_cover2" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                      <div class="form-group">
+                        <label for="cover">Cover</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file_cover" id="efile_cover">
+                            <label class="custom-file-label" for="cover">Choose file</label>
+
+                          </div>
+                        </div>
+                     </div>
+                   </form>
+                   <form method="post" id="upload_pdf2" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                      <div class="form-group">
+                        <label for="cover">Pdf</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="file_pdf" id="efile_pdf">
+                            <label class="custom-file-label" for="file_pdf">Choose file</label>
+                          </div>
+                        </div>
+                     </div>
+                   </form>
+                    
+                      <div class="form-group">
+                        <label for="esinopsis">Sinopsis</label>
+                        <textarea id="esinopsis" class="form-control"></textarea>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6">
+                        <label for="ejenis ">Jenis</label>
+                        <select id="ejenis" class="form-control">
+                          <option disabled selected>-- Pilih Jenis Buku --</option>
+                          <option value="novel">Novel</option>
+                          <option value="cerpen">Cerpen</option>
+                          <option value="puisi">Puisi</option>
+                          <option value="drama">Drama</option>
+                          <option value="hikayat">Hikayat</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="egenre ">genre</label>
+                        <select id="egenre" class="form-control">
+                          <option disabled selected>-- Pilih Genre Buku --</option>
+                          <option value="religi">Religi</option>
+                          <option value="nasionalisme">Nasionalisme</option>
+                          <option value="mandiri">Mandiri </option>
+                          <option value="gotong">Gotong Royong</option>
+                          <option value="integritas">Integritas</option>
+                          
+                        </select>
+                      </div>
+                      </div>
+                      <input type="text" id="txtcover" hidden>
+                      <input type="text" id="txtpdf" hidden>
+                      <input type="text" id="idbuku" hidden>
+                      <small class="text-danger">*kosongkon pdf dan cover jika tidak di ganti</small>
+                      
+              
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btnUpdate">Save changes</button>
                   </div>
                 </div>
                 <!-- /.modal-content -->
@@ -275,6 +362,174 @@
       }
   });
 
+  function Edit(judul,jenis,genre,sinopsis,isicover,isipdf,id) {
+    $('#modalEdit').modal('show');
+    $('#ejudul').val(judul);
+    $('#ejenis').val(jenis);
+    $('#egenre').val(genre);
+    $('#esinopsis').val(sinopsis);
+    $('#txtcover').val(isicover);
+    $('#txtpdf').val(isipdf);
+    $('#idbuku').val(id);
+  }
+
+  $('.btnUpdate').click(function() {
+    var cvrbr,pdfbr
+    var idBuku=$('#idbuku').val();
+      let myForm = document.getElementById('upload_cover2');
+      let myForm2=document.getElementById('upload_pdf2');
+      if( document.getElementById("efile_cover").files.length == 0 ){
+         cvrbr=$('#txtcover').val();
+         if (document.getElementById("efile_pdf").files.length == 0 ) {
+              pdfbr=$('#txtpdf').val();
+              $.ajax({
+                          url:"buku/update/"+idBuku,
+                          type:'POST',
+                          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                          data:{judul:$('#ejudul').val(),jenis:$('#ejenis').val(),genre:$('#egenre').val(),sinopsis:$('#esinopsis').val(),pdf:pdfbr,cover:cvrbr},
+                          success: function (data) {
+                            
+                                swal.fire(
+                                  'Berhasil!',
+                                  'Data buku berhasil di tambahkan',
+                                  'success'
+                                );
+                                setTimeout(location.reload.bind(location), 1500);
+                          },
+                          error: function (data) {
+                                swal.fire(
+                                  'Gagal!',
+                                  'data tidak berhasil di tambahkan',
+                                  'error'
+                                );
+                                console.log(cvrbr)
+                          }
+                      });
+            }else{
+              
+              $.ajax({
+                     url:"{{ route('guru.uploadP') }}",
+                     method:"POST",
+                     data:new FormData(myForm2),
+                     dataType:'JSON',
+                     contentType: false,
+                     cache: false,
+                     processData: false,
+                     success:function(data)
+                     {
+                        pdfbr=data['name'];
+                        $.ajax({
+                          url:"buku/update/"+idBuku,
+                          type:'POST',
+                          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                          data:{judul:$('#ejudul').val(),jenis:$('#ejenis').val(),genre:$('#egenre').val(),sinopsis:$('#esinopsis').val(),pdf:pdfbr,cover:cvrbr},
+                          success: function (data) {
+                            
+                                swal.fire(
+                                  'Berhasil!',
+                                  'Data buku berhasil di tambahkan',
+                                  'success'
+                                );
+                                setTimeout(location.reload.bind(location), 1500);
+                          },
+                          error: function (data) {
+                                swal.fire(
+                                  'Gagal!',
+                                  'data tidak berhasil di tambahkan',
+                                  'error'
+                                );
+                                console.log(cvrbr)
+                          }
+                      });
+                      }
+                    });
+            }
+        
+
+      }else{
+        
+        $.ajax({
+           url:"{{ route('guru.uploadC') }}",
+           method:"POST",
+           data:new FormData(myForm),
+           dataType:'JSON',
+           contentType: false,
+           cache: false,
+           processData: false,
+           success:function(data)
+           {
+            cvrbr=data['name'];
+            if (document.getElementById("efile_pdf").files.length == 0 ) {
+              pdfbr=$('#txtpdf').val();
+              $.ajax({
+                          url:"buku/update/"+idBuku,
+                          type:'POST',
+                          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                          data:{judul:$('#ejudul').val(),jenis:$('#ejenis').val(),genre:$('#egenre').val(),sinopsis:$('#esinopsis').val(),pdf:pdfbr,cover:cvrbr},
+                          success: function (data) {
+                            
+                                swal.fire(
+                                  'Berhasil!',
+                                  'Data buku berhasil di tambahkan',
+                                  'success'
+                                );
+                                setTimeout(location.reload.bind(location), 1500);
+                          },
+                          error: function (data) {
+                                swal.fire(
+                                  'Gagal!',
+                                  'data tidak berhasil di tambahkan',
+                                  'error'
+                                );
+                                console.log(cvrbr)
+                          }
+                      });
+            }else{
+              
+              $.ajax({
+                     url:"{{ route('guru.uploadP') }}",
+                     method:"POST",
+                     data:new FormData(myForm2),
+                     dataType:'JSON',
+                     contentType: false,
+                     cache: false,
+                     processData: false,
+                     success:function(data)
+                     {
+                        pdfbr=data['name'];
+                        $.ajax({
+                          url:"buku/update/"+idBuku,
+                          type:'POST',
+                          headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
+                          data:{judul:$('#ejudul').val(),jenis:$('#ejenis').val(),genre:$('#egenre').val(),sinopsis:$('#esinopsis').val(),pdf:pdfbr,cover:cvrbr},
+                          success: function (data) {
+                            
+                                swal.fire(
+                                  'Berhasil!',
+                                  'Data buku berhasil di tambahkan',
+                                  'success'
+                                );
+                                setTimeout(location.reload.bind(location), 1500);
+                          },
+                          error: function (data) {
+                                swal.fire(
+                                  'Gagal!',
+                                  'data tidak berhasil di tambahkan',
+                                  'error'
+                                );
+                                console.log(cvrbr)
+                          }
+                      });
+                      }
+                    });
+            }
+           
+           }
+              });
+      }
+
+    
+  });
 
   function Delete_buku(id) {
     const swalWithBootstrapButtons = Swal.mixin({

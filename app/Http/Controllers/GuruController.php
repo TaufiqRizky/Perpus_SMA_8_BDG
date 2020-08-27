@@ -29,6 +29,20 @@ class GuruController extends Controller
         return view('guru/buku',$data);
     }
 
+    public function Ubuku(Request $req, $id)
+    {
+      $data=DB::table('buku')
+              ->where('id', $id)
+              ->update([
+                'judul' => $req->judul,
+                'sinopsis' => $req->sinopsis,
+                'jenis' => $req->jenis,
+                'genre' => $req->genre,
+                'pdf' => $req->pdf,
+                'cover' => $req->cover,
+              ]);
+    }
+
     public function Cbuku(Request $req)
     {
       $user=Auth::user()->id;

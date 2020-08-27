@@ -40,6 +40,7 @@ Route::prefix('guru/')->name('guru.')->group(function(){
 Route::get('dashboard','GuruController@index')->name('index');
 Route::get('buku','GuruController@Rbuku')->name('Rbuku');
 Route::post('buku/tambah','GuruController@Cbuku')->name('Cbuku');
+Route::post('buku/update/{id}','GuruController@Ubuku')->name('Ubuku');
 Route::delete('buku/hapus/{id}','GuruController@Dbuku')->name('Dbuku');
 Route::post('buku/uploadC','GuruController@coverUpload')->name('uploadC');
 Route::post('buku/uploadP','GuruController@pdfUpload')->name('uploadP');

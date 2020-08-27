@@ -213,7 +213,28 @@
     text-decoration: none;
 }
 
-
+.pdf-viewer{
+    background: #353535;
+    margin-top: 100px;
+    padding: 50px;
+}
+.pdf-viewer button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: transparent;
+    border: none;
+}
+.pdf-viewer button i{
+    color: #fff;
+    font-size: 36px;
+}
+.pdf-viewer span{
+    color: #fff;
+    font-size: 18px;
+    padding-top: 20px;
+}
 
 
 
