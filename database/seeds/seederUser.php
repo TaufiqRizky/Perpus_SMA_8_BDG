@@ -16,17 +16,17 @@ class seederUser extends Seeder
         //
         DB::table('users')->insert([
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('admingtg'),
+            'password' => Hash::make('iniadmin'),
             'Role' => 'admin',
         ]);
         DB::table('users')->insert([
-            'email' => 'trizky@gmail.com',
-            'password' => Hash::make('10118080'),
+            'email' => 'guru@gmail.com',
+            'password' => Hash::make('iniguru'),
             'Role' => 'guru',
         ]);
         DB::table('users')->insert([
-            'email' => 'taufiq.it2@gmail.com',
-            'password' => Hash::make('15161212'),
+            'email' => 'siswa@gmail.com',
+            'password' => Hash::make('inisiswa'),
             'Role' => 'siswa',
         ]);
 
