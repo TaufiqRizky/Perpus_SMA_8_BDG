@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function Rguru()
     {
-        $data['guru']=DB::table('guru')->select('*')->get();
+        $data['guru']=DB::table('guru')->join('users', 'guru.user_id', '=', 'users.id')->select('guru.*','users.email')->get();
         $data['jml']=DB::table('guru')->select('*')->count();
         return view('admin/guru',$data);
     }
@@ -44,6 +44,29 @@ class AdminController extends Controller
 
       return $user;
     }
+    public function Uguru(Request $req)
+    {
+      
+              $data=DB::table('guru')
+              ->where('nip', $req->nip)
+              ->update([
+                'nip' => $req->nip,
+                'nama' => $req->nama,
+                
+                'alamat' => $req->alamat,
+                'jk' => $req->jk,
+                'tgl_lahir' => $req->tgl,
+              ]);
+
+              $user=DB::table('users')
+              ->where('id', $req->user_id)
+              ->update([
+                'email' => $req->email,
+                'password' => Hash::make($req->nip)
+              ]);
+
+      return $user;
+    }
 
     public function Dguru($id){
         $user = DB::table('guru')->where('user_id', '=', $id)->delete(); 
@@ -57,7 +80,7 @@ class AdminController extends Controller
 
    public function Rsiswa()
     {
-        $data['siswa']=DB::table('siswa')->select('*')->get();
+        $data['siswa']=DB::table('siswa')->join('users', 'siswa.user_id', '=', 'users.id')->select('siswa.*','users.email')->get();
         $data['jml']=DB::table('siswa')->select('*')->count();
         return view('admin/siswa',$data);
     }
@@ -79,6 +102,30 @@ class AdminController extends Controller
       $siswa->user_id=$user->id;
       $siswa->tgl_lahir=$req->tgl;
       $siswa->save();
+
+      return $user;
+    }
+
+     public function Usiswa(Request $req)
+    {
+      
+              $data=DB::table('siswa')
+              ->where('nis', $req->nis)
+              ->update([
+                'nis' => $req->nis,
+                'nama' => $req->nama,
+                'kelas' => $req->kelas,
+                'alamat' => $req->alamat,
+                'jk' => $req->jk,
+                'tgl_lahir' => $req->tgl,
+              ]);
+
+              $user=DB::table('users')
+              ->where('id', $req->user_id)
+              ->update([
+                'email' => $req->email,
+                'password' => Hash::make($req->nis)
+              ]);
 
       return $user;
     }

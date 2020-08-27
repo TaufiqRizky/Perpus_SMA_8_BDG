@@ -30,6 +30,8 @@ Route::delete('guru/hapus/{id}','AdminController@Dguru')->name('Dguru');
 Route::get('siswa','AdminController@Rsiswa')->name('Rsiswa');
 
 Route::post('siswa/tambah','AdminController@Csiswa')->name('Csiswa');
+Route::post('siswa/update','AdminController@Usiswa')->name('Usiswa');
+Route::post('guru/update','AdminController@Uguru');
 Route::delete('siswa/hapus/{id}','AdminController@Dsiswa')->name('Dsiswa');
 
 });
